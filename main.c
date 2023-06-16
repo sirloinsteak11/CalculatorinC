@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<time.h>
 
 int calculateNumbers(int x, char y, int z) {
 	int result;
@@ -22,6 +23,8 @@ int calculateNumbers(int x, char y, int z) {
 }
 
 int main() {
+	clock_t start, end;
+	start = clock();
 	int num1, num2;
 	char operation;
 	int result;
@@ -33,6 +36,10 @@ int main() {
 	scanf("%d %c %d", &num1, &operation, &num2);
 	
 	printf("%d %c %d = %d\n", num1, operation, num2, calculateNumbers(num1, operation, num2));
-		
+
+	end = clock();
+	double duration = ((double)end - start)/CLOCKS_PER_SEC;
+	printf("Time taken to execute in seconds: %f\n", duration);
+
 	return 0;
 }
